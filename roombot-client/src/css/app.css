@@ -1,0 +1,12 @@
+html, body{
+  width: 100vw;
+  height: 90vh;
+  margin: 0;
+  padding: 0;
+}
+.page-container{
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-image: url('~./../img/bkg.png');
+}
