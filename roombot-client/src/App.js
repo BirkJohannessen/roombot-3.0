@@ -2,11 +2,15 @@
 import React from 'react';
 import Login from './Login'
 import AppCss from './css/app.css'
+import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <>
       <div className='page-container'>
-        <Login />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/bot" element={<Login />} />
+        </Routes>
       </div>
     </>
   );
