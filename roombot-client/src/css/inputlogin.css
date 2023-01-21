@@ -1,0 +1,21 @@
+.input-wrapper{
+    height:auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 1em;
+    margin-top: 1em;
+}
+.input{
+    all: unset;
+    width: 30em;
+    display: block;
+    height: 3em;
+    border-radius: 2em;
+    background-color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 100%;
+    border: solid 3px black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif   ;
+}

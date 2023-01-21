@@ -1,4 +1,6 @@
 import LoginCss from './css/login.css'
+import InputLogin from './components/InputLogin'
+import Button from './components/Button'
 function Login() {
   var error=false;
   function login(inp) {
@@ -7,12 +9,11 @@ function Login() {
   }
   return (
     <div className="login-form">
-        <div class="login-info">Roombot requires login autentication</div>
-        <div class="login-info">................................................................................</div>
-        <input type="text" className="login-input"/>
-        <input type="password" className="login-input"/>
-        <div if={error} class="login-error">no login match.</div>
-        <button class="login-submit" OnClick={login("asdf")} >Login</button>
+        <div className="login-info">Roombot requires login autentication</div>
+        <div className="login-info">................................................................................</div>
+        <InputLogin />
+        <div if={error.toString()} className="login-error">no login match.</div>
+        <Button onClick={login("213")}/>
     </div>
   );
 }
