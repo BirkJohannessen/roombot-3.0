@@ -8,11 +8,13 @@
 }
 .input{
     all: unset;
-    width: 30em;
+    max-width: 100%;
     display: block;
     height: 3em;
     border-radius: 2em;
-    background-color: white;
+    color: #b5e853;
+    background-color: black;
+    text-align: center;
     padding-left: 1em;
     padding-right: 1em;
     font-size: 100%;

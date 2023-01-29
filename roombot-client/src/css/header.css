@@ -1,0 +1,30 @@
+.header-container{
+    width: 100%;
+    height: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #b5e853;
+    border-bottom: solid 1px #b5e853;
+    display: flex;
+    flex-direction: row;
+}
+.header{
+    width: auto;
+    font-size: 3em;
+    margin: auto;
+}
+.nav-wrap{
+    width: auto;
+    max-width: 30vw;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.nav-elem{
+    width: auto;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 1em;
+}
+.nav-elem:hover{
+    text-decoration: underline;
+}

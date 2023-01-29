@@ -1,0 +1,37 @@
+.reservations-container{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif   ;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    width: 32em;
+    margin: auto;
+    height:auto;
+}
+.reservation{
+    margin: 1em;
+    border-radius: 1em;
+    height: 4em;
+    display: flex;
+    flex-direction: row; 
+    color: #b5e853;
+    background-color: black;
+    align-items: center;
+    border: solid 1px #b5e853;
+
+}
+.res-info-short{
+    max-width:10%;
+    margin:auto;
+    text-align: left;
+}
+.res-img{
+    max-width:5%;
+    width: 5%;
+    margin:auto;
+    text-align: center;
+    cursor: pointer;
+}
+.res-info-long{
+    max-width: 20%;
+    margin:auto;
+    text-align: left;
+}

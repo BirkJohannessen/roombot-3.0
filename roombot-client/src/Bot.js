@@ -1,10 +1,31 @@
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import LoginCss from './css/bot.css'
-import InputLogin from './components/InputLogin';
 import InputCss from './css/select.css'
+import InputLogin from './components/InputLogin';
 import Button from './components/Button'
-import SelectRoom from './components/SelectRoom';
-import SelectTime from './components/SelectTime';
+import { Options } from './config/data'
+import Select from './components/Select';
+
 function Bot() {
+  const [bookInfo, setBookInfo] = useState({"username":"", "password":"", "room":"A204", "from":"06:00", "to":"06:00", "mode":"Kjør kontinuerlig"});
+  const navigate = useNavigate();
+
+  function updateInfo(update){
+    const newBookInfo = bookInfo;
+    for (const prop in update){
+      newBookInfo[`${prop}`] = update[`${prop}`];
+    }
+    setBookInfo(newBookInfo);
+  }
+
+  function handleBookSubmit() {
+    console.log(bookInfo);
+    //local check, throw error.
+    //send to api
+    navigate("/reservations");
+  }
+
   return (
     <div className="bot-container">
         <div className="bot-header">Roombot 3.0</div>
@@ -18,20 +39,21 @@ function Bot() {
         <div className="bot-header">................................................................................</div>
         <div className="bot-form">
           <div className="bot-forminfo">Feide login</div>
-          <InputLogin />
+          <InputLogin reader={updateInfo} />
+
           <div className="bot-forminfo">Grupperom</div>
-          <SelectRoom />
+          <Select id="room" reader={updateInfo} options={Options.rooms} />
+
           <div className="bot-forminfo">Fra</div>
-          <SelectTime />
+          <Select id="from" reader={updateInfo} options={Options.hours} />
+
           <div className="bot-forminfo">Til</div>
-          <SelectTime />
+          <Select id="to" reader={updateInfo} options={Options.hours} />
+
           <div className="bot-forminfo">Roombotmode</div>
-          <select className="select">
-            <option>Kjør kontinuerlig</option>
-            <option>Kjør en gang</option>
-          </select>
-          
-          <Button />
+          <Select id="mode" reader={updateInfo} options={Options.modes} />
+
+          <Button handler={handleBookSubmit} name="Book" />
 
         </div>
 

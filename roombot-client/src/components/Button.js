@@ -1,7 +1,7 @@
 import ButtonCss from '../css/button.css'
-function Button() {
+function Button({ name, handler }) {
   return (
-        <button className="button">Login</button>
+        <button onClick={() => handler()} className="button">{name}</button>
   );
 }
 
