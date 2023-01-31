@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/roombot-api.props" />
+</Project>

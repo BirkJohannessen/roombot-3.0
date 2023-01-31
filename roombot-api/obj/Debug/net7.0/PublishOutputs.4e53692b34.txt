@@ -1,0 +1,15 @@
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/roombot-api
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/appsettings.Development.json
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/appsettings.json
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/roombot-api.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/roombot-api.deps.json
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/roombot-api.runtimeconfig.json
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/roombot-api.pdb
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Microsoft.AspNetCore.OpenApi.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Microsoft.EntityFrameworkCore.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Microsoft.EntityFrameworkCore.InMemory.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Microsoft.OpenApi.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Swashbuckle.AspNetCore.Swagger.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/publish/Swashbuckle.AspNetCore.SwaggerUI.dll
