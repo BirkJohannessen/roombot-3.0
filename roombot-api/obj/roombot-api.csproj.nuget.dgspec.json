@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/bravo/Desktop/projectWS/roombot3/roombot-api/roombot-api.csproj": {}
+    "/home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/roombot-api.csproj": {}
   },
   "projects": {
-    "/home/bravo/Desktop/projectWS/roombot3/roombot-api/roombot-api.csproj": {
+    "/home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/roombot-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bravo/Desktop/projectWS/roombot3/roombot-api/roombot-api.csproj",
+        "projectUniqueName": "/home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/roombot-api.csproj",
         "projectName": "roombot-api",
-        "projectPath": "/home/bravo/Desktop/projectWS/roombot3/roombot-api/roombot-api.csproj",
-        "packagesPath": "/home/bravo/.nuget/packages/",
-        "outputPath": "/home/bravo/Desktop/projectWS/roombot3/roombot-api/obj/",
+        "projectPath": "/home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/roombot-api.csproj",
+        "packagesPath": "/home/birkj/.nuget/packages/",
+        "outputPath": "/home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/bravo/.nuget/NuGet/NuGet.Config"
+          "/home/birkj/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
