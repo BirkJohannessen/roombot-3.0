@@ -1,6 +1,10 @@
+using context;
 public class ReservationImpl{
 
-    public ReservationImpl(){}
+    private RoombotContext db;
+    public ReservationImpl(){
+        //db = new RoombotContext();
+    }
     public bool validateOwnership(int reservationID, string cookie){
         //TODO
         return true;

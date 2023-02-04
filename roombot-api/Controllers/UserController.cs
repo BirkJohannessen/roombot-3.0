@@ -5,30 +5,32 @@ namespace roombot_api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class UserController : ControllerBase {
+    public UserHelper userhelper { get ; set ; }
     private readonly ILogger<UserController> _logger;
 
     public UserController(ILogger<UserController> logger) {
         _logger = logger;
+        userhelper = new UserHelper();
     }
 
-    [HttpPost]
+    /*[HttpPost]
     public String login() {
-        return "login";
-    }
+        return "login not implemented";
+    }*/
     [HttpPost]
     public String registerUser(int id) {
-        return "register"+id;
+        return userhelper.registerUser("username", "password", "coookie");
     }
     [HttpGet("{id}")]
     public String user(int id) {
-        return "user"+id;
+        return userhelper.fetchUser(id, "cookie");
     }
     [HttpDelete("{id}")]
     public String deleteUser(int id) {
-        return "register"+id;
+        return "delete not implemented";
     }
     [HttpGet(Name = "users")]
     public String users() {
-        return "users list";
+        return userhelper.fetchUsers("cookie");
     }
 }

@@ -1,4 +1,4 @@
-class UserImpl{
+public class UserImpl{
     public UserImpl(){}
 
     public bool validateUser(int userID, string cookie){

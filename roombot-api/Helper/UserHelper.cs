@@ -3,32 +3,32 @@ public class UserHelper{
     public UserHelper(){
         userDB = new UserImpl();
     }
-    public static string fetchUsers(string cookie){
-        if(dbImpl.validateAdmin(cookie)){
-            return dbImpl.fetchUsers();
+    public string fetchUsers(string cookie){
+        if(userDB.validateAdmin(cookie)){
+            return userDB.fetchUsers();
         }else{
             return "";
         }
     }
-    public static string registerUser(int userID, string cookie){
-        if(dbImpl.validateAdmin(cookie)){
-            return dbImpl.registerUser();
+    public string registerUser(string username, string password, string cookie){
+        if(userDB.validateAdmin(cookie)){
+            return userDB.registerUser(username, password);
         }else{
             return "";
         }
     }
-    public static string updateUser(int userID, string cookie){
-        if(dbImpl.validateAdmin(cookie)||dbImpl.validateUser(userID, cookie)){
-            return dbImpl.updateUser(userID, "args");
+    public string updateUser(int userID, string cookie){
+        if(userDB.validateAdmin(cookie) || userDB.validateUser(userID, cookie)){
+            return userDB.updateUser(userID, "args");
         }else{
             return "";
         }
     }
 
-    public static string fetchUser(int userID, string cookie){
+    public string fetchUser(int userID, string cookie){
         //this class should return a userobject with admin status, name and cookie.
-        if(dbImpl.validateAdmin(cookie)||dbImpl.validateUser(userID, cookie)){
-            return dbImpl.fetchUser(userID);
+        if(userDB.validateAdmin(cookie) || userDB.validateUser(userID, cookie)){
+            return userDB.fetchUser(userID);
         }else{
             return "";
         }
