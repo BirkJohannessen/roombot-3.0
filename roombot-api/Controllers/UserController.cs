@@ -1,5 +1,7 @@
 using context;
 using Microsoft.AspNetCore.Mvc;
+using models;
+using response;
 
 namespace roombot_api.Controllers;
 
@@ -9,11 +11,10 @@ public class UserController : ControllerBase {
     public UserHelper userhelper { get ; set ; }
     private readonly ILogger<UserController> _logger;
 
-    private readonly RoombotContext _context;
     public UserController(ILogger<UserController> logger, RoombotContext context) {
-        userhelper = new UserHelper();
+        RoombotResponse response = new RoombotResponse();
+        userhelper = new UserHelper(context, response);
         _logger = logger;
-        _context=context;
     }
 
     /*[HttpPost]
@@ -21,19 +22,19 @@ public class UserController : ControllerBase {
         return "login not implemented";
     }*/
     [HttpPost]
-    public String registerUser(int id) {
-        return userhelper.registerUser("username", "password", "coookie", _context);
+    public RoombotResponse registerUser(int id) {
+        return userhelper.registerUser("username", "password", "coookie");
     }
     [HttpGet("{id}")]
-    public String user(int id) {
-        return userhelper.fetchUser(id, "cookie", _context);
+    public RoombotResponse user(int id) {
+        return userhelper.fetchUser(id, "cookie");
     }
     [HttpDelete("{id}")]
-    public String deleteUser(int id) {
-        return "delete not implemented";
+    public RoombotResponse deleteUser(int id) {
+        return userhelper.deleteUser(id, "cookiw");
     }
     [HttpGet(Name = "users")]
-    public String users() {
-        return userhelper.fetchUsers("cookie", _context);
+    public RoombotResponse users() {
+        return userhelper.fetchUsers("cookie");
     }
 }

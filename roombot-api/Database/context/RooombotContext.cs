@@ -6,8 +6,8 @@ namespace context {
 
         public RoombotContext(DbContextOptions<RoombotContext> options) : base(options) { }
 
-        DbSet<User> tbl_users { get; set; }
-        DbSet<Reservation> tbl_reservations { get; set; }
+        public DbSet<User> tbl_users { get; set; }
+        public DbSet<Reservation> tbl_reservations { get; set; }
 
     }
 }

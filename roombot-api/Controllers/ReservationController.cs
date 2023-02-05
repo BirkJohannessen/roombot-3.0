@@ -1,4 +1,4 @@
-
+using context;
 using Microsoft.AspNetCore.Mvc;
 
 namespace roombot_api.Controllers;
@@ -8,9 +8,9 @@ namespace roombot_api.Controllers;
 public class ReservationController : ControllerBase {
     private readonly ILogger<ReservationController> _logger;
     public ReservationHelper reservationhelper { get ; set ; }
-    public ReservationController(ILogger<ReservationController> logger) {
+    public ReservationController(ILogger<ReservationController> logger, RoombotContext context) {
+        reservationhelper = new ReservationHelper(context);
         _logger = logger;
-        reservationhelper = new ReservationHelper();
     }
     [HttpGet("{id}")]
     public String userReservations(int resID) {

@@ -1,9 +1,9 @@
 using context;
 public class ReservationImpl{
 
-    private RoombotContext db;
-    public ReservationImpl(){
-        //db = new RoombotContext();
+    private readonly RoombotContext _context;
+    public ReservationImpl(RoombotContext context){
+        _context = context;
     }
     public bool validateOwnership(int reservationID, string cookie){
         //TODO

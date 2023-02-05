@@ -1,40 +1,66 @@
 using context;
+using models;
+using response;
 public class UserHelper{
     public UserImpl userDB { get ; set; }
-    public UserHelper(){
-        userDB = new UserImpl();
+    public RoombotResponse _response { get; set; }
+    public UserHelper(RoombotContext context, RoombotResponse response){
+        userDB = new UserImpl(context);
+        _response = response;
     }
-    public string fetchUsers(string cookie, RoombotContext context){
-        if(userDB.validateAdmin(cookie, context)){
-            return userDB.fetchUsers(context);
+    public RoombotResponse fetchUsers(string cookie){
+        if(userDB.validateAdmin(cookie)){
+            List<User> users = userDB.fetchUsers();
+            _response.data = users;
+            _response.status = Status.Success;
         }else{
-            return "";
+            _response.status = Status.Failed;
+            _response.error = "you are not admin";
         }
+        return _response;
     }
-    public string registerUser(string username, string password, string cookie, RoombotContext context){
-        if(userDB.validateAdmin(cookie, context)){
+    public RoombotResponse registerUser(string username, string password, string cookie){
+        if(userDB.validateAdmin(cookie)){
             //TODO: validate input data
             //TODO: check that user doesnt already exist
-            return userDB.registerUser(username, password, context);
+            userDB.registerUser(username, password);
+            _response.status = Status.Success;
         }else{
-            return "";
+            _response.status = Status.Failed;
+            _response.error = "you are not admin";
         }
+        return _response;
     }
-    public string updateUser(int userID, string cookie, RoombotContext context){
-        if(userDB.validateAdmin(cookie, context) || userDB.validateUser(userID, cookie, context)){
-            return userDB.updateUser(userID, "args", context);
+    public RoombotResponse updateUser(int userID, string cookie){
+        if(userDB.validateAdmin(cookie) || userDB.validateUser(userID, cookie)){
+            _response.data = userDB.updateUser(userID, "args");
+            _response.status = Status.Success;
         }else{
-            return "";
+            _response.status = Status.Failed;
+            _response.error = "you are not autorized to that action";
         }
+        return _response;
     }
 
-    public string fetchUser(int userID, string cookie, RoombotContext context){
+    public RoombotResponse fetchUser(int userID, string cookie){
         //this class should return a userobject with admin status, name and cookie.
-        if(userDB.validateAdmin(cookie, context) || userDB.validateUser(userID, cookie, context)){
-            return userDB.fetchUser(userID, context);
+        if(userDB.validateAdmin(cookie) || userDB.validateUser(userID, cookie)){
+            _response.data = userDB.fetchUser(userID);
+            _response.status = Status.Success;
         }else{
-            return "";
+            _response.status = Status.Failed;
+            _response.error = "you are not autorized to that action";
         }
-
+        return _response;
+    }
+    public RoombotResponse deleteUser(int userID, string cookie){
+        if(userDB.validateAdmin(cookie)){
+             _response.data = userDB.deleteUser(userID);
+            _response.status = Status.Success;
+        }else{
+            _response.status = Status.Failed;
+            _response.error = "you are not admin";
+        }
+        return _response;
     }
 }

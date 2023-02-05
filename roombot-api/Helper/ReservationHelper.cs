@@ -1,10 +1,10 @@
-
+using context;
 public class ReservationHelper{
     public UserImpl userDB { get ; set; }
     public ReservationImpl reservationDB { get ; set ; }
-    public ReservationHelper(){
-        userDB = new UserImpl();
-        reservationDB = new ReservationImpl();
+    public ReservationHelper(RoombotContext context){
+        userDB = new UserImpl(context);
+        reservationDB = new ReservationImpl(context);
     }
     public string fetchUserReservations(int reservationID, string cookie, int userID){
         if(reservationDB.validateOwnership(reservationID, cookie) || userDB.validateAdmin(cookie)){

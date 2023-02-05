@@ -1,36 +1,39 @@
 using context;
 using models;
 public class UserImpl{
-    public UserImpl(){}
+    private readonly RoombotContext _context;
+    public UserImpl(RoombotContext context){
+        _context=context;
+    }
 
-    public bool validateUser(int userID, string cookie, RoombotContext context){
+    public bool validateUser(int userID, string cookie){
         //TODO
         return true;
     }
-    public bool validateAdmin(string cookie, RoombotContext context){
+    public bool validateAdmin(string cookie){
         //TODO
         return true;
     }
-    public string fetchUser(int UserID, RoombotContext context){
-        //TODO
-        return "user";
+    public User fetchUser(int userID){
+        return _context.tbl_users.Single( user => user.id==userID );
     }
-    public string fetchUsers(RoombotContext context){
-        //TODO
-        return "users";
+    public List<User> fetchUsers(){
+        var users = _context.tbl_users.ToList();
+        return users;
     }
-    public string updateUser(int UserID, string args, RoombotContext context){
+    public string updateUser(int UserID, string args){
         //TODO
         return "updated user";
     }
-    public string deleteUser(int UserID, RoombotContext context){
+    public string deleteUser(int UserID){
         //TODO
         return "deleted user";
     }
-    public string registerUser(string username, string password, RoombotContext context){
-        var user = new User{username="birk", password="test", cookie="213"};
-        context.Add<User>(user);
-        context.SaveChanges();
-        return "?";
+    public void registerUser(string username, string password){
+        //TODO hash password
+        //generate cookie?
+        User user = new User{username=username, password=password, cookie="", admin=false};
+        _context.Add<User>(user);
+        _context.SaveChanges();
     }
 }
