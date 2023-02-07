@@ -10,10 +10,12 @@ namespace roombot_api.Controllers;
 public class UserController : ControllerBase {
     public UserHelper userhelper { get ; set ; }
     private readonly ILogger<UserController> _logger;
+    private readonly RoombotResponse _response;
 
     public UserController(ILogger<UserController> logger, RoombotContext context) {
         RoombotResponse response = new RoombotResponse();
         userhelper = new UserHelper(context, response);
+        _response = response;
         _logger = logger;
     }
 
@@ -23,18 +25,46 @@ public class UserController : ControllerBase {
     }*/
     [HttpPost]
     public RoombotResponse registerUser(int id) {
-        return userhelper.registerUser("username", "password", "coookie");
+        try{
+            return userhelper.registerUser("teh_admin", "password", "cookie");
+        }catch(Exception){
+            _response.error = "unhandled exception.";
+            _response.data = null;
+            _response.status = Status.Failed;
+            return _response;
+        }
     }
     [HttpGet("{id}")]
     public RoombotResponse user(int id) {
-        return userhelper.fetchUser(id, "cookie");
+        try{
+            return userhelper.fetchUser(id, "cookie");
+        }catch(Exception){
+            _response.error = "unhandled exception.";
+            _response.data = null;
+            _response.status = Status.Failed;
+            return _response;
+        }
     }
     [HttpDelete("{id}")]
     public RoombotResponse deleteUser(int id) {
-        return userhelper.deleteUser(id, "cookiw");
+        try{
+            return userhelper.deleteUser(id, "cookie");
+        }catch(Exception){
+            _response.error = "unhandled exception.";
+            _response.data = null;
+            _response.status = Status.Failed;
+            return _response;
+        }
     }
     [HttpGet(Name = "users")]
     public RoombotResponse users() {
-        return userhelper.fetchUsers("cookie");
+        try{
+            return userhelper.fetchUsers("cookie");
+        }catch(Exception){
+            _response.error = "unhandled exception.";
+            _response.data = null;
+            _response.status = Status.Failed;
+            return _response;
+        }
     }
 }
