@@ -17,7 +17,7 @@ public class UserImpl{
         try{
             _context.tbl_users.Single( user => user.cookie == cookie );
             return true;
-        }catch(Exception){
+        }catch(InvalidOperationException){
             return false;
         }
     }
@@ -33,7 +33,7 @@ public class UserImpl{
 
     }
     public User fetchUserByCookie(string cookie){
-        return _context.tbl_users.Single( user => user.cookie == cookie);
+            return _context.tbl_users.Single( user => user.cookie == cookie);
     }
     public User fetchUser(int userID){
         return _context.tbl_users.Single( user => user.id==userID );

@@ -10,6 +10,11 @@ public class UserHelper{
     }
     public RoombotResponse fetchUsers(string cookie){
         //TODO validate input
+        if (!userDB.userExists(cookie)) {
+            _response.status = Status.Failed;
+            _response.error = "session expired";
+            return _response;
+        }
         if(userDB.validateAdmin(cookie)){
             List<User> users = userDB.fetchUsers();
             _response.data = users;
@@ -21,6 +26,11 @@ public class UserHelper{
         return _response;
     }
     public RoombotResponse registerUser(string username, string password, string cookie){
+        if (!userDB.userExists(cookie)) {
+            _response.status = Status.Failed;
+            _response.error = "session expired";
+            return _response;
+        }
         //TODO validate input
         if(userDB.validateAdmin(cookie)){
             //TODO: check that user doesnt already exist
@@ -34,11 +44,21 @@ public class UserHelper{
     }
 
     public RoombotResponse fetchUser(int userID, string cookie){
+        if (!userDB.userExists(cookie)) {
+            _response.status = Status.Failed;
+            _response.error = "session expired";
+            return _response;
+        }
         //TODO validate input
         if(userDB.validateAdmin(cookie) || userDB.validateUser(userID, cookie)){
             //TODO: Check that user exists.
-            _response.data = userDB.fetchUser(userID);
-            _response.status = Status.Success;
+            try{
+                _response.data = userDB.fetchUser(userID);
+                _response.status = Status.Success;
+            }catch(Exception){
+                _response.status = Status.Failed;
+                _response.error = "user does not exist.";
+            }
         }else{
             _response.status = Status.Failed;
             _response.error = "you are not autorized to that action";
@@ -46,6 +66,11 @@ public class UserHelper{
         return _response;
     }
     public RoombotResponse deleteUser(int userID, string cookie){
+        if (!userDB.userExists(cookie)) {
+            _response.status = Status.Failed;
+            _response.error = "session expired";
+            return _response;
+        }
         //TODO validate input
         if(userDB.validateAdmin(cookie)){
             //TODO: check that user exists
@@ -58,6 +83,11 @@ public class UserHelper{
         return _response;
     }
     public RoombotResponse updateUser(int userID, string cookie){
+        if (!userDB.userExists(cookie)) {
+            _response.status = Status.Failed;
+            _response.error = "session expired";
+            return _response;
+        }
         //TODO think of a usecase for updateUser.
         //TODO validate input
         if(userDB.validateAdmin(cookie) || userDB.validateUser(userID, cookie)){

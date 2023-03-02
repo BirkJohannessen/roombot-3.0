@@ -1,5 +1,6 @@
 using context;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using response;
 
 namespace roombot_api.Controllers;
@@ -17,14 +18,14 @@ public class ReservationController : ControllerBase {
         _response = response;
     }
     [HttpGet]
-    public RoombotResponse userReservations() {
+    public IActionResult userReservations() {
         try{
-            return reservationhelper.fetchUserReservations("cookie");
+            return Ok(reservationhelper.fetchUserReservations(""));
         }catch(Exception){
             _response.error = "unhandled exception.";
             _response.data = null;
             _response.status = Status.Failed;
-            return _response;
+            return NotFound(_response);
         }
     }
     /*[HttpGet(Name = "reservations")]
@@ -32,25 +33,25 @@ public class ReservationController : ControllerBase {
         return reservationhelper.fetchReservations("cookie");
     }*/
     [HttpPost]
-    public RoombotResponse newReservation() {
+    public IActionResult newReservation() {
         try{
-            return reservationhelper.newReservation("cookie");
+            return Ok(reservationhelper.newReservation("cookie"));
         }catch(Exception){
             _response.error = "unhandled exception.";
             _response.data = null;
             _response.status = Status.Failed;
-            return _response;
+            return NotFound(_response);
         }
     }
     [HttpDelete("{id}")]
-    public RoombotResponse deleteReservation(int resID) {
+    public IActionResult deleteReservation(int resID) {
         try{
-            return reservationhelper.deleteReservation(resID, "cookie");
+            return Ok(reservationhelper.deleteReservation(resID, "cookie"));
         }catch(Exception){
             _response.error = "unhandled exception.";
             _response.data = null;
             _response.status = Status.Failed;
-            return _response;
+            return NotFound(_response);
         }
     }
 }

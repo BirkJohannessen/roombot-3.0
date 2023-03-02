@@ -2,6 +2,7 @@ using context;
 using Microsoft.AspNetCore.Mvc;
 using models;
 using response;
+using requests;
 
 namespace roombot_api.Controllers;
 
@@ -24,47 +25,49 @@ public class UserController : ControllerBase {
         return "login not implemented";
     }*/
     [HttpPost]
-    public RoombotResponse registerUser(int id) {
+    public IActionResult registerUser(Login login) {
         try{
-            return userhelper.registerUser("teh_admin", "password", "cookie");
-        }catch(Exception){
+            RoombotResponse response = userhelper.registerUser(login._username, login._password, "cookie");
+            HttpContext.Response.Headers.Add("Set-Cookie", "asdf");
+            return Ok(_response);
+        } catch(Exception) {
             _response.error = "unhandled exception.";
             _response.data = null;
             _response.status = Status.Failed;
-            return _response;
+            return NotFound(_response);
         }
     }
     [HttpGet("{id}")]
-    public RoombotResponse user(int id) {
+    public IActionResult user(int id) {
         try{
-            return userhelper.fetchUser(id, "cookie");
+            return Ok(userhelper.fetchUser(id, "cookie"));
         }catch(Exception){
             _response.error = "unhandled exception.";
             _response.data = null;
             _response.status = Status.Failed;
-            return _response;
+            return NotFound(_response);
         }
     }
     [HttpDelete("{id}")]
-    public RoombotResponse deleteUser(int id) {
+    public IActionResult deleteUser(int id) {
         try{
-            return userhelper.deleteUser(id, "cookie");
+            return Ok(userhelper.deleteUser(id, "cookie"));
         }catch(Exception){
             _response.error = "unhandled exception.";
             _response.data = null;
             _response.status = Status.Failed;
-            return _response;
+            return NotFound(_response);
         }
     }
     [HttpGet(Name = "users")]
-    public RoombotResponse users() {
+    public IActionResult users() {
         try{
-            return userhelper.fetchUsers("cookie");
+            return Ok(userhelper.fetchUsers("cookie"));
         }catch(Exception){
             _response.error = "unhandled exception.";
             _response.data = null;
             _response.status = Status.Failed;
-            return _response;
+            return NotFound(_response);
         }
     }
 }

@@ -158,3 +158,9 @@
 /home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/obj/Debug/net7.0/roombot-api.pdb
 /home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/obj/Debug/net7.0/roombot-api.genruntimeconfig.cache
 /home/birkj/Desktop/projectWS/roombot-3.0/roombot-api/obj/Debug/net7.0/ref/roombot-api.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/System.Net.Http.Formatting.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/System.Web.Http.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/Newtonsoft.Json.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/unit-testing-using-dotnet-test/PrimeService/obj/PrimeService.csproj.nuget.dgspec.json
+/home/bravo/Desktop/projectWS/roombot3/roombot-api/bin/Debug/net7.0/unit-testing-using-dotnet-test/PrimeService/obj/project.assets.json
